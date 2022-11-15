@@ -50,15 +50,14 @@ namespace DungeonCrawl.Actors.Characters
 
         public override bool OnCollision(Actor anotherActor)
         {
-            Debug.Log("Collision!");
             if (anotherActor is Character)
             {
-                Debug.Log("Character is caharcter");
                 Character otherCharacter = (Character)anotherActor;
+                //TODO (add 3rd enemy too!)
                 if (otherCharacter is Skeleton || otherCharacter is Ghost)
                 {
                     Attack(otherCharacter);
-                    Debug.Log($"You hurt an enemy.");
+                    Debug.Log($"You hurt an enemy: {otherCharacter.GetType().Name}");
                 }
             }
 
