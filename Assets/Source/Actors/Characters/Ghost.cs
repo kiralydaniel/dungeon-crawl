@@ -6,6 +6,10 @@ namespace DungeonCrawl.Actors.Characters
     public class Ghost : Character
     {
 
+        public Ghost() :base(15,5)
+        {
+
+        }
 
         protected override void OnUpdate(float deltaTime)
         {
