@@ -61,6 +61,17 @@ namespace DungeonCrawl.Core
                     break;
                 case ' ':
                     break;
+                case 'd':
+                    ActorManager.Singleton.Spawn<Door>(position);
+                    break;
+                case 'c':
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    ActorManager.Singleton.Spawn<Cactus>(position);
+                    break;
+                case 'b':
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    ActorManager.Singleton.Spawn<Bush>(position);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
