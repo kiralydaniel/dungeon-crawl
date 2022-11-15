@@ -22,7 +22,7 @@ namespace DungeonCrawl.Actors
         public Dictionary<string, int> Inventory = new Dictionary<string, int>()
         {
             {"sword", 0},
-            {"shield", 0},
+            {"armor", 0},
             {"key", 0}
         };
 
