@@ -19,6 +19,11 @@ namespace DungeonCrawl.Actors.Characters
             }
         }
 
+        public override bool OnCollision(Actor anotherActor)
+        {
+            return false;
+        }
+
         protected abstract void OnDeath();
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DungeonCrawl.Core;
 
 namespace DungeonCrawl.Actors.Characters
 {
@@ -29,12 +30,9 @@ namespace DungeonCrawl.Actors.Characters
                 // Move right
                 TryMove(Direction.Right);
             }
+            CameraController.Singleton.Position = Position;
         }
 
-        public override bool OnCollision(Actor anotherActor)
-        {
-            return false;
-        }
 
         protected override void OnDeath()
         {
