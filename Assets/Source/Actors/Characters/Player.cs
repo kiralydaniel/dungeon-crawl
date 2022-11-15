@@ -7,7 +7,7 @@ namespace DungeonCrawl.Actors.Characters
     public class Player : Character
     {
 
-        public Player() : base(25, 5)
+        public Player() : base(35, 5)
         {
 
         }
@@ -54,7 +54,7 @@ namespace DungeonCrawl.Actors.Characters
             {
                 Character otherCharacter = (Character)anotherActor;
                 //TODO (add 3rd enemy too!)
-                if (otherCharacter is Skeleton || otherCharacter is Ghost)
+                if (otherCharacter is Skeleton || otherCharacter is Ghost || otherCharacter is Devil)
                 {
                     Attack(otherCharacter);
                     Debug.Log($"You hurt an enemy: {otherCharacter.GetType().Name}");

@@ -40,7 +40,7 @@ namespace DungeonCrawl.Actors.Characters
 
         protected override void OnDeath()
         {
-            Debug.Log("Death of a ghost :(");
+            Debug.Log("You've defeated a ghost!");
         }
 
 
