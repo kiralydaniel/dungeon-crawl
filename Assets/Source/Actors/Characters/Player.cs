@@ -1,12 +1,19 @@
-﻿using UnityEngine;
+﻿using Assets.Source.Core;
+using UnityEngine;
 using DungeonCrawl.Core;
 
 namespace DungeonCrawl.Actors.Characters
 {
     public class Player : Character
     {
+        public Player()
+        {
+            Health = 100;
+            Shield = 5;
+        }
         protected override void OnUpdate(float deltaTime)
         {
+            UserInterface.Singleton.PrintInterface(Inventory, MaxHealth, Health);
             if (Input.GetKeyDown(KeyCode.W))
             {
                 // Move up
@@ -37,6 +44,16 @@ namespace DungeonCrawl.Actors.Characters
         protected override void OnDeath()
         {
             Debug.Log("Oh no, I'm dead!");
+        }
+
+        public bool HasKey(string key)
+        {
+            if (Inventory[key] > 0)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public override int DefaultSpriteId => 24;

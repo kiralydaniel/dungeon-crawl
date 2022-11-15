@@ -1,4 +1,5 @@
-﻿using DungeonCrawl.Core;
+﻿using System.Collections.Generic;
+using DungeonCrawl.Core;
 using UnityEngine;
 
 namespace DungeonCrawl.Actors
@@ -17,6 +18,13 @@ namespace DungeonCrawl.Actors
 
         private (int x, int y) _position;
         private SpriteRenderer _spriteRenderer;
+
+        public Dictionary<string, int> Inventory = new Dictionary<string, int>()
+        {
+            {"sword", 0},
+            {"shield", 0},
+            {"key", 0}
+        };
 
         private void Awake()
         {
