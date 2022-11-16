@@ -25,12 +25,7 @@ namespace DungeonCrawl.Actors
 
         }
 
-        public Dictionary<string, int> Inventory = new Dictionary<string, int>()
-        {
-            {"sword", 0},
-            {"armor", 0},
-            {"key", 0}
-        };
+        public Dictionary<string, int> Inventory = new Dictionary<string, int>();
 
         private void Awake()
         {
