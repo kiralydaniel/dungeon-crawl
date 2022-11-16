@@ -22,8 +22,6 @@ namespace DungeonCrawl.Actors.Characters
                 Input.GetKeyDown(KeyCode.D))
             {
                 (int x, int y) playerPosition = ActorManager.Singleton.GetPlayerPosition();
-                Debug.Log("Player position" + playerPosition);
-                Debug.Log("Devil position " + Position);
                 (int, int) targetPosition;
                 if (Position.x < playerPosition.x)
                 {
