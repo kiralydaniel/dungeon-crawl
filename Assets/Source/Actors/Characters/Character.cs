@@ -6,9 +6,9 @@ namespace DungeonCrawl.Actors.Characters
     public abstract class Character : Actor
     {
         public int Health { get; set; }
-        public int MaxHealth { get; set; } = 100; 
-        public int Shield { get; set; } = 0;
+        public int MaxHealth { get; set; } = 100;
         public int Damage { get; private set; }
+        public int Armor { get; set; } = 0;
 
         public Character(int health, int damage)
         {
@@ -60,5 +60,7 @@ namespace DungeonCrawl.Actors.Characters
         ///     All characters are drawn "above" floor etc
         /// </summary>
         public override int Z => -1;
+        
     }
+
 }

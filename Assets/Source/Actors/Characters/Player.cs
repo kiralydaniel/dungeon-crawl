@@ -8,9 +8,9 @@ namespace DungeonCrawl.Actors.Characters
     public class Player : Character
     {
 
-        public Player() : base(35, 5)
+        public Player() : base(100, 5)
         {
-            Shield = 5;
+            
         }
         protected override void OnUpdate(float deltaTime)
         {
