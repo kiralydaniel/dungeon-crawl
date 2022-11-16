@@ -70,6 +70,12 @@ namespace Assets.Source.Core
             Singleton.SetText(inventoryToPrint, TextPosition.BottomRight);
             Singleton.SetText($"HP: {health}/{maxHealth}\nARMOR: {armor}\nDAMAGE: {strength} " , UserInterface.TextPosition.BottomLeft);
         }
-        
+
+        public void EndScreen(string message)
+        {
+            Singleton.SetText(message, TextPosition.MiddleCenter);
+        }
+
+
     }
 }
