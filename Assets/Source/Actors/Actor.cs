@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Core;
 using UnityEngine;
 
@@ -18,6 +19,11 @@ namespace DungeonCrawl.Actors
 
         private (int x, int y) _position;
         private SpriteRenderer _spriteRenderer;
+        
+        public virtual void AddToStat(Stats stat, int toAdd)
+        {
+
+        }
 
         public Dictionary<string, int> Inventory = new Dictionary<string, int>()
         {

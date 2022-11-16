@@ -52,7 +52,7 @@ namespace Assets.Source.Core
             _textComponents[(int) textPosition].text = text;
         }
         
-        public void PrintInterface(Dictionary<string, int> inventory,int MaxHealth, int Health)
+        public void PrintInterface(Dictionary<string, int> inventory,int maxHealth, int health, int strength, int armor)
         {
             string inventoryToPrint = string.Empty;
             string items = string.Empty;
@@ -68,7 +68,8 @@ namespace Assets.Source.Core
                 inventoryToPrint += "Inventory:\n" + items;
             }
             Singleton.SetText(inventoryToPrint, TextPosition.BottomRight);
-            Singleton.SetText($"HP: {Health}/{MaxHealth}", UserInterface.TextPosition.BottomLeft);
+            Singleton.SetText($"HP: {health}/{maxHealth}\nARMOR: {armor}\nDAMAGE: {strength} " , UserInterface.TextPosition.BottomLeft);
         }
+        
     }
 }

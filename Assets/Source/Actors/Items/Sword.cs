@@ -12,7 +12,16 @@ namespace DungeonCrawl.Actors.Items
         {
             if (actor is Player)
             {
-                actor.Inventory["sword"] += 1;
+                if (actor.Inventory.ContainsKey("sword"))
+                {
+                    actor.Inventory["sword"]++;
+                    actor.AddToStat(Stats.Strength, 10);
+                }
+                else
+                {
+                    actor.Inventory.Add("sword", 1);
+                    actor.AddToStat(Stats.Strength, 10);
+                }
             }
             else
             {
