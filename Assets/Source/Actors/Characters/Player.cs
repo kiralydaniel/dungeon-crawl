@@ -1,8 +1,7 @@
 ﻿using Assets.Source.Core;
 using UnityEngine;
 using DungeonCrawl.Core;
-using System;
-using Unity.Burst.Intrinsics;
+
 
 namespace DungeonCrawl.Actors.Characters
 {
@@ -43,13 +42,13 @@ namespace DungeonCrawl.Actors.Characters
             CameraController.Singleton.Position = Position;
         }
 
-        public void Attack(Character enemyCharacter)
-        {
-            if (enemyCharacter.Health>0)
-            {
-                enemyCharacter.ApplyDamage(Damage, enemyCharacter.Armor);
-            }
-        }
+        // public void Attack(Character enemyCharacter)
+        // {
+        //     if (enemyCharacter.Health>0)
+        //     {
+        //         enemyCharacter.ApplyDamage(Damage, enemyCharacter.Armor);
+        //     }
+        // }
 
         public override bool OnCollision(Actor anotherActor)
         {

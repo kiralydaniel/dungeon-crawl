@@ -13,7 +13,14 @@ namespace DungeonCrawl.Actors.Items
         {
             if (actor is Player)
             {
-                actor.Inventory["key"] += 1;
+                if (actor.Inventory.ContainsKey("key"))
+                {
+                    actor.Inventory["key"]++;
+                }
+                else
+                {
+                    actor.Inventory.Add("key", 1);
+                }
             }
             else
             {
