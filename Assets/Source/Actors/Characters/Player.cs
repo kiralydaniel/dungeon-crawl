@@ -1,14 +1,15 @@
 ﻿using Assets.Source.Core;
 using UnityEngine;
 using DungeonCrawl.Core;
+using System;
 
 namespace DungeonCrawl.Actors.Characters
 {
     public class Player : Character
     {
-        public Player()
+
+        public Player() : base(35, 5)
         {
-            Health = 100;
             Shield = 5;
         }
         protected override void OnUpdate(float deltaTime)
@@ -36,10 +37,34 @@ namespace DungeonCrawl.Actors.Characters
             {
                 // Move right
                 TryMove(Direction.Right);
-            }
+            } 
+            
             CameraController.Singleton.Position = Position;
         }
 
+        public void Attack(Character enemyCharacter)
+        {
+            if (enemyCharacter.Health>0)
+            {
+                enemyCharacter.ApplyDamage(Damage);
+            }
+        }
+
+        public override bool OnCollision(Actor anotherActor)
+        {
+            if (anotherActor is Character)
+            {
+                Character otherCharacter = (Character)anotherActor;
+                //TODO (add 3rd enemy too!)
+                if (otherCharacter is Skeleton || otherCharacter is Ghost || otherCharacter is Devil)
+                {
+                    Attack(otherCharacter);
+                    Debug.Log($"You hurt an enemy: {otherCharacter.GetType().Name}");
+                }
+            }
+
+            return false;
+        }
 
         protected override void OnDeath()
         {

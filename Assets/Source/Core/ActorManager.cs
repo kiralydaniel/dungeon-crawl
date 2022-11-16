@@ -119,5 +119,19 @@ namespace DungeonCrawl.Core
 
             return component;
         }
+
+        public (int, int) GetPlayerPosition()
+        {
+            foreach (Actor actor in _allActors)
+            {
+                if (actor.name == "Player")
+                {
+                    return actor.Position;
+                }
+ 
+            }
+
+            return (0,0);
+        }
     }
 }

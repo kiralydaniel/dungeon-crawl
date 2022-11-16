@@ -1,12 +1,20 @@
 ﻿using DungeonCrawl.Core;
+using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
     public abstract class Character : Actor
     {
         public int Health { get; set; }
-        public int MaxHealth { get; set; } = 100;
+        public int MaxHealth { get; set; } = 100; 
         public int Shield { get; set; } = 0;
+        public int Damage { get; private set; }
+
+        public Character(int health, int damage)
+        {
+            Health = health;
+            Damage = damage;
+        }
 
         public void ApplyDamage(int damage)
         {
@@ -23,9 +31,29 @@ namespace DungeonCrawl.Actors.Characters
 
         public override bool OnCollision(Actor anotherActor)
         {
+            if (anotherActor is Character)
+            {
+                Character character = (Character)anotherActor;
+                if (character is Player)
+                {
+                    Attack(character);
+                    Debug.Log($"A(n) {name} hurt you  -{Damage}. Your health is {character.Health}/25");
+                    anotherActor.OnCollision(this);
+                }
+
+
+            }
+
             return false;
         }
 
+        public void Attack(Character playerCharacter)
+        {
+            if (playerCharacter.Health > 0)
+            {
+                playerCharacter.ApplyDamage(Damage);
+            }
+        }
         protected abstract void OnDeath();
 
         /// <summary>

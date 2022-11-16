@@ -68,9 +68,18 @@ namespace DungeonCrawl.Core
                     ActorManager.Singleton.Spawn<Floor>(position);
                     ActorManager.Singleton.Spawn<Sword>(position);
                     break;
-                case 'd':
+                case 'D':
                     ActorManager.Singleton.Spawn<Door>(position);
                     break;
+                case 'g':
+                    ActorManager.Singleton.Spawn<Ghost>(position);
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    break;
+                case '':
+                    ActorManager.Singleton.Spawn<Devil>(position);
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    break;
+
                 case ' ':
                     break;
                 default:
