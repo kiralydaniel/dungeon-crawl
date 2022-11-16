@@ -83,6 +83,10 @@ namespace DungeonCrawl.Core
                     ActorManager.Singleton.Spawn<Armor>(position);
                     ActorManager.Singleton.Spawn<Floor>(position);
                     break;
+                case 'h':
+                    ActorManager.Singleton.Spawn<HealthPotion>(position);
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    break;
                 case ' ':
                     break;
                 default:

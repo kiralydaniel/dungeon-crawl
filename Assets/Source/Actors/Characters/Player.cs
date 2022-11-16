@@ -11,6 +11,7 @@ namespace DungeonCrawl.Actors.Characters
 
         public Player() : base(100, 5)
         {
+            
         }
         protected override void OnUpdate(float deltaTime)
         {
