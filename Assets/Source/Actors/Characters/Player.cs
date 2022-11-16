@@ -2,6 +2,7 @@
 using UnityEngine;
 using DungeonCrawl.Core;
 using System;
+using Unity.Burst.Intrinsics;
 
 namespace DungeonCrawl.Actors.Characters
 {
@@ -14,7 +15,7 @@ namespace DungeonCrawl.Actors.Characters
         }
         protected override void OnUpdate(float deltaTime)
         {
-            UserInterface.Singleton.PrintInterface(Inventory, MaxHealth, Health);
+            UserInterface.Singleton.PrintInterface(Inventory, MaxHealth, Health, Damage, Armor);
             if (Input.GetKeyDown(KeyCode.W))
             {
                 // Move up
@@ -46,7 +47,7 @@ namespace DungeonCrawl.Actors.Characters
         {
             if (enemyCharacter.Health>0)
             {
-                enemyCharacter.ApplyDamage(Damage);
+                enemyCharacter.ApplyDamage(Damage, enemyCharacter.Armor);
             }
         }
 
@@ -83,5 +84,20 @@ namespace DungeonCrawl.Actors.Characters
 
         public override int DefaultSpriteId => 24;
         public override string DefaultName => "Player";
+        public override void AddToStat(Stats stat, int toAdd)
+        {
+            switch (stat)
+            {
+                case Stats.Health:
+                    Health += toAdd;
+                    break;
+                case Stats.Strength:
+                    Damage += toAdd;
+                    break;
+                case Stats.Armor:
+                    Armor += toAdd;
+                    break;
+            }
+        }
     }
 }

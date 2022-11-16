@@ -3,25 +3,24 @@ using DungeonCrawl.Core;
 
 namespace DungeonCrawl.Actors.Items
 {
-    internal class Sword : Item
+    internal class HealthPotion : Item
     {
-        public override int DefaultSpriteId => 464;
-        public override string DefaultName => "Sword";
+        public override int DefaultSpriteId => 518;
+        public override string DefaultName => "HealthPotion";
 
         public override bool OnCollision(Actor actor)
         {
-            if (actor is Player)
+            if (actor is Player player)
             {
-                if (actor.Inventory.ContainsKey("sword"))
+                if (player.Health >= 75)
                 {
-                    actor.Inventory["sword"]++;
-                    actor.AddToStat(Stats.Strength, 10);
+                    player.Health = player.MaxHealth;
                 }
                 else
                 {
-                    actor.Inventory.Add("sword", 1);
-                    actor.AddToStat(Stats.Strength, 10);
+                    actor.AddToStat(Stats.Health, 25);
                 }
+                
             }
             else
             {

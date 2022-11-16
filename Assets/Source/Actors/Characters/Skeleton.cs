@@ -5,7 +5,7 @@ namespace DungeonCrawl.Actors.Characters
     public class Skeleton : Character
     {
  
-        public Skeleton() : base(5, 2)
+        public Skeleton() : base(5, 4)
         {
         }
         protected override void OnDeath()
