@@ -1,6 +1,8 @@
 ﻿using Assets.Source.Core;
 using UnityEngine;
 using DungeonCrawl.Core;
+using System.Collections;
+using DungeonCrawl.Actors.Items;
 
 
 namespace DungeonCrawl.Actors.Characters
@@ -69,7 +71,22 @@ namespace DungeonCrawl.Actors.Characters
         protected override void OnDeath()
         {
             Debug.Log("Oh no, I'm dead!");
+            ActorManager.Singleton.DestroyAllActors();
+            UserInterface.Singleton.EndScreen("YOU DIED!");
+            UserInterface.Singleton.PrintInterface(Inventory, MaxHealth, 0, Damage, Armor);
+            //SceneManager.LoadScene("Menu");
+            //pauseGame();
+            //SceneManager.LoadScene("Menu");
+
         }
+
+        public IEnumerator pauseGame()
+        {
+            Debug.Log("Inside PauseGame()");
+            yield return new WaitForSeconds(5.0f);
+
+        }
+
 
         public bool HasKey(string key)
         {
