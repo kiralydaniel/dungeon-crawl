@@ -29,7 +29,7 @@ namespace DungeonCrawl.Actors.Characters
                         TryMove(Direction.Left);
                         break;
                     case 3:
-                        TryMove(Direction.Left);
+                        TryMove(Direction.Right);
                         break;
                 }
             }

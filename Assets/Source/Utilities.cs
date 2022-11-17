@@ -28,5 +28,12 @@ namespace DungeonCrawl
                     throw new ArgumentOutOfRangeException(nameof(dir), dir, null);
             }
         }
+
+        public static int NewRandomNumber(int maximum = 100)
+        {
+            Random random = new Random();
+            int randomNumber = random.Next(maximum);
+            return randomNumber;
+        }
     }
 }
