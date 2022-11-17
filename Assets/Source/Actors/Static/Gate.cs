@@ -13,9 +13,15 @@ namespace DungeonCrawl.Actors.Static
         public override bool OnCollision(Actor anotherActor)
         {
             // All actors are passable by default
-            ActorManager.Singleton.DestroyAllActors();
-            MapLoader.LoadMap(2);
-            return true;
+            if (anotherActor is Player)
+            {
+                ActorManager.Singleton.DestroyAllActors();
+                MapLoader.LoadMap(2);
+                return true;
+            }
+
+            return false;
+
         }
     }
 }
