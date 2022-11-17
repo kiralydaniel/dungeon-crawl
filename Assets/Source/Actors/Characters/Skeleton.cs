@@ -7,7 +7,7 @@ namespace DungeonCrawl.Actors.Characters
 {
     public class Skeleton : Character
     {
- 
+
         public Skeleton() : base(5, 4)
         {
         }
@@ -17,11 +17,15 @@ namespace DungeonCrawl.Actors.Characters
                 || Input.GetKeyDown(KeyCode.D))
             {
                 (int x, int y) playerPosition = ActorManager.Singleton.GetPlayerPosition();
-                if (Position == playerPosition)
-                {
-                    Position = Position;
-                }
-                else
+                if (!(Position == (playerPosition.Item1 + 1, playerPosition.Item2) ||
+                Position == (playerPosition.Item1 - 1, playerPosition.Item2) ||
+                Position == (playerPosition.Item1, playerPosition.Item2 + 1) ||
+                Position == (playerPosition.Item1, playerPosition.Item2 - 1) ||
+                Position == (playerPosition.Item1 + 1, playerPosition.Item2 + 1) ||
+                Position == (playerPosition.Item1 - 1, playerPosition.Item2 - 1) ||
+                Position == (playerPosition.Item1 + 1, playerPosition.Item2 - 1) ||
+                Position == (playerPosition.Item1 - 1, playerPosition.Item2 + 1)
+                ))
                 {
                     var direction = Random.Range(0, 4);
                     switch (direction)
@@ -38,12 +42,10 @@ namespace DungeonCrawl.Actors.Characters
                         case 3:
                             TryMove(Direction.Right);
                             break;
-                    
                     }
                 }
 
             }
-
         }
         protected override void OnDeath()
         {
@@ -53,7 +55,7 @@ namespace DungeonCrawl.Actors.Characters
             {
                 ActorManager.Singleton.Spawn<HealthPotion>(Position);
             }
-            
+
         }
 
         public override int DefaultSpriteId => 316;
