@@ -3,6 +3,7 @@ using UnityEngine;
 using DungeonCrawl.Core;
 using System.Collections;
 using DungeonCrawl.Actors.Items;
+using UnityEngine.SceneManagement;
 
 
 namespace DungeonCrawl.Actors.Characters
@@ -72,11 +73,7 @@ namespace DungeonCrawl.Actors.Characters
         {
             Debug.Log("Oh no, I'm dead!");
             ActorManager.Singleton.DestroyAllActors();
-            UserInterface.Singleton.EndScreen("YOU DIED!");
-            UserInterface.Singleton.PrintInterface(Inventory, MaxHealth, 0, Damage, Armor);
-            //SceneManager.LoadScene("Menu");
-            //pauseGame();
-            //SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("GameOver");
 
         }
 

@@ -16,10 +16,8 @@ namespace DungeonCrawl.Actors.Items
         {
             if (actor is Player)
             {
-                UserInterface.Singleton.EndScreen("CONGRATS, YOU WON THE GAME!");
                 ActorManager.Singleton.DestroyAllActors();
-                //System.Threading.Thread.Sleep(3000);
-                //SceneManager.LoadScene("Menu");
+                SceneManager.LoadScene("Victory");
                 return true;
             }
 

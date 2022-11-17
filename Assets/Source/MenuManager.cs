@@ -17,5 +17,15 @@ namespace DungeonCrawl
         {
             Application.Quit();
         }
+
+        public void GameOver()
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+
+        public void Victory()
+        {
+            SceneManager.LoadScene("Victory");
+        }
     }
 }
