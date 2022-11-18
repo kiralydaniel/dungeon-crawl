@@ -17,7 +17,6 @@ namespace DungeonCrawl.Actors.Characters
         protected override void OnUpdate(float deltaTime)
         {
 
-            //TODO devil moves towards player
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A) ||
                 Input.GetKeyDown(KeyCode.D))
             {
@@ -27,7 +26,7 @@ namespace DungeonCrawl.Actors.Characters
                 {
                     targetPosition = (Position.x + 1, Position.y);
                 }
-                else if (Position.x < playerPosition.x)
+                else if (Position.x == playerPosition.x)
                 {
                     targetPosition = Position;
                 }
